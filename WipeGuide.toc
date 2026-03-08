@@ -36,3 +36,4 @@ Settings.lua
 
 # Guides
 Guides\Example.lua
+Guides\Midnight\ZulAman_Campaign.lua

@@ -127,6 +127,14 @@ function WG:RegisterGuide(path, data)
     self.guides[path] = data
 end
 
+--- Registriert eine Kampagne (Sammlung von Guide-Kapiteln)
+WG.campaigns = {}
+function WG:RegisterCampaign(path, data)
+    if not path or not data then return end
+    data.path = path
+    self.campaigns[path] = data
+end
+
 --- Listet alle registrierten Guides im Chat auf
 function WG:ListGuides()
     local count = 0
