@@ -1,0 +1,192 @@
+<Ui xmlns="http://www.blizzard.com/wow/ui/"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.blizzard.com/wow/ui/ ..\FrameXML\UI.xsd">
+
+    <!-- WipeGuide Hauptfenster -->
+    <Frame name="WipeGuideViewerFrame" parent="UIParent" frameStrata="MEDIUM"
+           movable="true" resizable="true" clampedToScreen="true"
+           hidden="true" enableMouse="true">
+        <Size x="300" y="400"/>
+        <Anchors>
+            <Anchor point="RIGHT" x="-50" y="0"/>
+        </Anchors>
+
+        <!-- Hintergrund -->
+        <Backdrop bgFile="Interface\DialogFrame\UI-DialogBox-Background"
+                  edgeFile="Interface\DialogFrame\UI-DialogBox-Border" tile="true">
+            <BackgroundInsets>
+                <AbsInset left="4" right="4" top="4" bottom="4"/>
+            </BackgroundInsets>
+            <TileSize val="32"/>
+            <EdgeSize val="16"/>
+        </Backdrop>
+
+        <!-- Titlebar -->
+        <Frames>
+            <!-- Titelleiste (ziehbar) -->
+            <Frame name="$parentTitleBar" parentKey="titleBar">
+                <Size x="300" y="28"/>
+                <Anchors>
+                    <Anchor point="TOPLEFT"/>
+                    <Anchor point="TOPRIGHT"/>
+                </Anchors>
+                <Layers>
+                    <Layer level="OVERLAY">
+                        <FontString name="$parentTitle" parentKey="title"
+                                    inherits="GameFontNormalLarge" text="WipeGuide">
+                            <Anchors>
+                                <Anchor point="CENTER" y="0"/>
+                            </Anchors>
+                        </FontString>
+                    </Layer>
+                </Layers>
+            </Frame>
+
+            <!-- Schließen-Button -->
+            <Button name="$parentCloseButton" parentKey="closeButton"
+                    inherits="UIPanelCloseButton">
+                <Anchors>
+                    <Anchor point="TOPRIGHT" x="-2" y="-2"/>
+                </Anchors>
+            </Button>
+
+            <!-- Minimieren-Button -->
+            <Button name="$parentMinimizeButton" parentKey="minimizeButton"
+                    inherits="UIPanelButtonTemplate" text="—">
+                <Size x="24" y="24"/>
+                <Anchors>
+                    <Anchor point="TOPRIGHT" relativeTo="$parentCloseButton"
+                            relativePoint="TOPLEFT" x="-2" y="0"/>
+                </Anchors>
+            </Button>
+
+            <!-- Guide-Titel -->
+            <Frame name="$parentGuideHeader" parentKey="guideHeader">
+                <Size x="280" y="20"/>
+                <Anchors>
+                    <Anchor point="TOP" y="-30"/>
+                </Anchors>
+                <Layers>
+                    <Layer level="OVERLAY">
+                        <FontString name="$parentGuideTitle" parentKey="guideTitle"
+                                    inherits="GameFontNormal" text="" justifyH="CENTER">
+                            <Size x="280" y="20"/>
+                            <Anchors>
+                                <Anchor point="CENTER"/>
+                            </Anchors>
+                        </FontString>
+                    </Layer>
+                </Layers>
+            </Frame>
+
+            <!-- Step Content Area -->
+            <Frame name="$parentStepFrame" parentKey="stepFrame">
+                <Size x="280" y="260"/>
+                <Anchors>
+                    <Anchor point="TOP" y="-55"/>
+                </Anchors>
+                <Layers>
+                    <Layer level="OVERLAY">
+                        <!-- Step-Nummer -->
+                        <FontString name="$parentStepNumber" parentKey="stepNumber"
+                                    inherits="GameFontHighlightLarge" text="Step 1/1">
+                            <Anchors>
+                                <Anchor point="TOPLEFT" x="10" y="-5"/>
+                            </Anchors>
+                        </FontString>
+                        <!-- Step-Type Icon Text -->
+                        <FontString name="$parentStepType" parentKey="stepType"
+                                    inherits="GameFontNormal" text="">
+                            <Anchors>
+                                <Anchor point="TOPRIGHT" x="-10" y="-5"/>
+                            </Anchors>
+                        </FontString>
+                        <!-- Step-Text -->
+                        <FontString name="$parentStepText" parentKey="stepText"
+                                    inherits="GameFontHighlight" text=""
+                                    justifyH="LEFT" justifyV="TOP" wordwrap="true">
+                            <Size x="260" y="0"/>
+                            <Anchors>
+                                <Anchor point="TOPLEFT" x="10" y="-30"/>
+                                <Anchor point="TOPRIGHT" x="-10" y="-30"/>
+                            </Anchors>
+                        </FontString>
+                        <!-- Koordinaten -->
+                        <FontString name="$parentCoords" parentKey="coords"
+                                    inherits="GameFontNormalSmall" text="">
+                            <Color r="0.7" g="0.7" b="0.7"/>
+                            <Anchors>
+                                <Anchor point="BOTTOMLEFT" x="10" y="5"/>
+                            </Anchors>
+                        </FontString>
+                    </Layer>
+                </Layers>
+            </Frame>
+
+            <!-- Fortschrittsbalken -->
+            <StatusBar name="$parentProgressBar" parentKey="progressBar"
+                       minValue="0" maxValue="100" defaultValue="0">
+                <Size x="260" y="14"/>
+                <Anchors>
+                    <Anchor point="BOTTOM" y="45"/>
+                </Anchors>
+                <BarTexture file="Interface\TargetingFrame\UI-StatusBar"/>
+                <BarColor r="0.0" g="0.8" b="0.0" a="1.0"/>
+                <Layers>
+                    <Layer level="OVERLAY">
+                        <FontString name="$parentProgressText" parentKey="text"
+                                    inherits="GameFontNormalSmall" text="0%">
+                            <Anchors>
+                                <Anchor point="CENTER"/>
+                            </Anchors>
+                        </FontString>
+                    </Layer>
+                </Layers>
+            </StatusBar>
+
+            <!-- Navigation Buttons -->
+            <Button name="$parentPrevButton" parentKey="prevButton"
+                    inherits="UIPanelButtonTemplate" text="< Zurück">
+                <Size x="80" y="24"/>
+                <Anchors>
+                    <Anchor point="BOTTOMLEFT" x="10" y="10"/>
+                </Anchors>
+            </Button>
+
+            <Button name="$parentSkipButton" parentKey="skipButton"
+                    inherits="UIPanelButtonTemplate" text="Skip">
+                <Size x="60" y="24"/>
+                <Anchors>
+                    <Anchor point="BOTTOM" y="10"/>
+                </Anchors>
+            </Button>
+
+            <Button name="$parentNextButton" parentKey="nextButton"
+                    inherits="UIPanelButtonTemplate" text="Weiter >">
+                <Size x="80" y="24"/>
+                <Anchors>
+                    <Anchor point="BOTTOMRIGHT" x="-10" y="10"/>
+                </Anchors>
+            </Button>
+        </Frames>
+
+        <Scripts>
+            <OnLoad>
+                self:RegisterForDrag("LeftButton")
+            </OnLoad>
+            <OnDragStart>
+                if not WipeGuide.db.profile.guideViewer.locked then
+                    self:StartMoving()
+                end
+            </OnDragStart>
+            <OnDragStop>
+                self:StopMovingOrSizing()
+                -- Position speichern
+                local point, _, _, x, y = self:GetPoint()
+                WipeGuide.db.profile.guideViewer.point = point
+                WipeGuide.db.profile.guideViewer.x = x
+                WipeGuide.db.profile.guideViewer.y = y
+            </OnDragStop>
+        </Scripts>
+    </Frame>
+</Ui>

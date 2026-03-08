@@ -1,0 +1,45 @@
+<Ui xmlns="http://www.blizzard.com/wow/ui/"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.blizzard.com/wow/ui/ ..\FrameXML\UI.xsd">
+
+    <!-- WipeGuide Waypoint Arrow HUD -->
+    <Frame name="WipeGuideWaypointFrame" parent="UIParent" frameStrata="HIGH"
+           hidden="true" enableMouse="false">
+        <Size x="64" y="64"/>
+        <Anchors>
+            <Anchor point="TOP" y="-120"/>
+        </Anchors>
+
+        <Layers>
+            <!-- Richtungspfeil (Textur wird in Lua rotiert) -->
+            <Layer level="ARTWORK">
+                <Texture name="$parentArrow" parentKey="arrow"
+                         file="Interface\Minimap\MinimapArrow">
+                    <Size x="48" y="48"/>
+                    <Anchors>
+                        <Anchor point="CENTER" y="5"/>
+                    </Anchors>
+                </Texture>
+            </Layer>
+
+            <!-- Distanzanzeige -->
+            <Layer level="OVERLAY">
+                <FontString name="$parentDistance" parentKey="distance"
+                            inherits="GameFontNormalLarge" text="">
+                    <Anchors>
+                        <Anchor point="TOP" relativePoint="BOTTOM" relativeTo="$parentArrow" y="-5"/>
+                    </Anchors>
+                </FontString>
+
+                <!-- Koordinaten-Anzeige -->
+                <FontString name="$parentCoords" parentKey="coords"
+                            inherits="GameFontNormalSmall" text="">
+                    <Color r="0.7" g="0.7" b="0.7"/>
+                    <Anchors>
+                        <Anchor point="TOP" relativePoint="BOTTOM" relativeTo="$parentDistance" y="-2"/>
+                    </Anchors>
+                </FontString>
+            </Layer>
+        </Layers>
+    </Frame>
+</Ui>

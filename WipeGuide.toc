@@ -1,0 +1,36 @@
+## Interface: 110100
+## Title: WipeGuide
+## Notes: Quest Guide Addon für die WIPE AG Gilde — Step-by-Step Leveling & Dungeon Guides
+## Notes-deDE: Quest Guide Addon für die WIPE AG Gilde — Schritt-für-Schritt Leveling & Dungeon Guides
+## Author: WIPE AG
+## Version: 0.1.0
+## SavedVariables: WipeGuideDB
+## DefaultState: enabled
+## X-Category: Quests & Leveling
+## X-Website: https://github.com/wipe-ag/WipeGuide
+## X-License: MIT
+
+# Libraries
+Libs\LibStub\LibStub.lua
+Libs\AceAddon-3.0\AceAddon-3.0.lua
+Libs\AceDB-3.0\AceDB-3.0.lua
+Libs\HereBeDragons\HereBeDragons-2.0.lua
+
+# Locales
+Locales\enUS.lua
+Locales\deDE.lua
+
+# Core
+Core.lua
+
+# Modules
+GuideViewer.xml
+GuideViewer.lua
+Waypoint.xml
+Waypoint.lua
+AutoQuest.lua
+Settings.xml
+Settings.lua
+
+# Guides
+Guides\Example.lua
